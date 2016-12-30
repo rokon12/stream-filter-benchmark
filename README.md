@@ -1,5 +1,7 @@
 # Run complete. Total time: 00:40:19
 
+```
+
 Benchmark                                                                        Mode      Cnt      Score     Error  Units
 MyBenchmark.testStreamWithMultipleFilter                                        thrpt      200  24367.016 ± 169.686  ops/s
 MyBenchmark.testStreamWithSingleFilter                                          thrpt      200  32779.157 ± 127.938  ops/s
