@@ -46,7 +46,7 @@ public class MyBenchmark {
 	@Benchmark
 	@BenchmarkMode(Mode.All)
 	@OutputTimeUnit(TimeUnit.SECONDS)
-	public void testStreamWithSingleFilter() {
+	public long testStreamWithSingleFilter() {
 		List<Double> doubles = new Random().doubles(1_000, 1, 4).boxed().collect(Collectors.toList());
 		long count = doubles
 			.stream()
@@ -55,12 +55,14 @@ public class MyBenchmark {
 				&& d != 3.10040970053377777
 				&& d != 2.96240970053377777)
 			.count();
+		
+		return count;
 	}
 
 	@Benchmark
 	@BenchmarkMode(Mode.All)
 	@OutputTimeUnit(TimeUnit.SECONDS)
-	public void testStreamWithMultipleFilter() {
+	public long testStreamWithMultipleFilter() {
 		List<Double> doubles = new Random().doubles(1_000, 1, 4).boxed().collect(Collectors.toList());
 		long count = doubles
 			.stream()
@@ -69,6 +71,7 @@ public class MyBenchmark {
 			.filter(d -> d != 3.10040970053377777)
 			.filter(d -> d != 2.96240970053377777)
 			.count();
+		
+		return count;
 	}
-
 }
